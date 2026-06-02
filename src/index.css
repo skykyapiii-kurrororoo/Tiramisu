@@ -1,10 +1,8 @@
 @font-face {
   font-family: 'SugarFree';
-    src: local('Sugar Free DEMO Normal'),
-      local('SugarFreeDEMO-Normal'),
-       url('sugarfreeDEMO.woff2') format('woff2'),
-       url('sugarfreeDEMO.woff') format('woff'),
-       url('sugarfreeDEMO.otf') format('opentype');
+  src: local('Sugar Free DEMO Normal'),
+       local('SugarFreeDEMO-Normal'),
+       url('https://raw.githubusercontent.com/skykyapiii-kurrororoo/Tiramisu/main/font/sugarfreeDEMO.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

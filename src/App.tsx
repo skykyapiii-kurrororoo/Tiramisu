@@ -331,18 +331,7 @@ export default function App() {
                   className="absolute -top-20 sm:-top-14 left-0 w-full h-32 pointer-events-none select-none z-40"
                 >
                   <svg viewBox="0 0 400 150" className="w-full h-full">
-                    <defs>
-                      <style>
-                        {`
-                          @font-face {
-                            font-family: 'SugarFree';
-                            src: local('Sugar Free DEMO Normal'),
-                                 local('SugarFreeDEMO-Normal'),
-                                 url('/sugarfreeDEMO.otf') format('opentype');
-                          }
-                        `}
-                      </style>
-                    </defs>
+                    
                     <path id="text-curve" d="M 50,120 Q 200,35 350,120" fill="transparent" />
                     <text
                       className="text-[34px] sm:text-[56px] md:text-[72px] lg:text-[78px] fill-[#4a3328] tracking-wider font-sugar font-bold"
