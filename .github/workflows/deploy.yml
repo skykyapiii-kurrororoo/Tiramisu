@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           # do not persist the automatic GITHUB_TOKEN credentials so we can use a personal token for publishing
-          persist-credentials: false
+          persist-credentials: true
           fetch-depth: 0
 
       - name: Use Node.js
