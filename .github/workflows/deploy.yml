@@ -30,7 +30,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           # Use a personal access token stored as a repo secret named PERSONAL_TOKEN
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: gh-pages
           # create the branch if it does not exist
