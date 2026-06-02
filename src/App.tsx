@@ -377,17 +377,18 @@ export default function App() {
                     }));
                     setFallingItems((prev) => [...prev, ...burstItems]);
 
-                    // Ensure tiramisu audio from the `audio/` folder is loaded and played
-                    if (audioRef.current) {
+                    // Move to page 2 first, then start playback without resetting position
+                    setCurrentPage(2);
+
+                    if (audioRef.current && !isPlaying) {
                       try {
-                        audioRef.current.pause();
                         audioRef.current.muted = false;
                         audioRef.current.preload = 'auto';
-                        audioRef.current.currentTime = 0;
+                        // Only set the source if it isn't already the tiramisu track
                         if (!audioRef.current.src || !audioRef.current.src.includes('/Tiramisuu_Cake.mp3')) {
                           audioRef.current.src = tiramisuMusic;
+                          audioRef.current.load();
                         }
-                        audioRef.current.load();
                         const prom = audioRef.current.play();
                         if (prom && typeof prom.then === 'function') {
                           prom.then(() => setIsPlaying(true)).catch((err) => console.log('Audio play promise rejected:', err));
@@ -396,8 +397,6 @@ export default function App() {
                         console.log('Audio play error:', err);
                       }
                     }
-
-                    setCurrentPage(2);
                   }}
                 />
               </div>
