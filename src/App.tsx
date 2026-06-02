@@ -183,26 +183,23 @@ export default function App() {
     setFallingItems((prev) => [...prev, clickedTumble]);
 
     // 3. Auto-play music upon the first click interaction if not already playing
-                    if (audioRef.current) {
-                      try {
-                        // Reset and attach correct source
-                        audioRef.current.pause();
-                        audioRef.current.muted = false;
-                        audioRef.current.preload = 'auto';
-                        audioRef.current.currentTime = 0;
-                        if (!audioRef.current.src || audioRef.current.src.indexOf(tiramisuMusic) === -1) {
-                          audioRef.current.src = tiramisuMusic;
-                        }
-                        audioRef.current.load();
-
-                        const p = audioRef.current.play();
-                        if (p && typeof p.then === 'function') {
-                          p.then(() => setIsPlaying(true)).catch((err) => console.log('Audio play promise rejected:', err));
-                        }
-                      } catch (err) {
-                        console.log('Audio play error:', err);
-                      }
-                    }
+    if (audioRef.current && !isPlaying) {
+      try {
+        audioRef.current.muted = false;
+        audioRef.current.preload = 'auto';
+        // Only set the source if it's not already the tiramisu track
+        if (!audioRef.current.src || !audioRef.current.src.includes('/Tiramisuu_Cake.mp3')) {
+          audioRef.current.src = tiramisuMusic;
+          audioRef.current.load();
+        }
+        const p = audioRef.current.play();
+        if (p && typeof p.then === 'function') {
+          p.then(() => setIsPlaying(true)).catch((err) => console.log('Audio play promise rejected:', err));
+        }
+      } catch (err) {
+        console.log('Audio play error:', err);
+      }
+    }
   };
 
   // Automatically clean up stale ripples
