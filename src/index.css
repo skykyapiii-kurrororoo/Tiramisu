@@ -2,7 +2,9 @@
   font-family: 'SugarFree';
     src: local('Sugar Free DEMO Normal'),
       local('SugarFreeDEMO-Normal'),
-      url('sugarfreeDEMO.otf') format('opentype');
+       url('sugarfreeDEMO.woff2') format('woff2'),
+       url('sugarfreeDEMO.woff') format('woff'),
+       url('sugarfreeDEMO.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
