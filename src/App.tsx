@@ -6,7 +6,7 @@ const cakeImage = new URL('/cake.png', import.meta.url).href;
 const greetingsImage = new URL('/Greetings.png', import.meta.url).href;
 const tongueCatGif = new URL('/cat-cat-with-tongue.gif', import.meta.url).href;
 const tiramisuMusic = new URL('/audio/Tiramisuu_Cake.mp3', import.meta.url).href;
-const catMeowMusic = new URL('/cat-meow-happy-birthday.mp3', import.meta.url).href;
+const catMeowMusic = new URL('/audio/cat-meow-happy-birthday.mp3', import.meta.url).href;
 
 interface Ripple {
   id: number;
