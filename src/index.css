@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'SugarFree';
-  src: local('Sugar Free DEMO Normal'),
-       local('SugarFreeDEMO-Normal'),
-       url('/sugarfreeDEMO.otf') format('opentype');
+    src: local('Sugar Free DEMO Normal'),
+      local('SugarFreeDEMO-Normal'),
+      url('sugarfreeDEMO.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
