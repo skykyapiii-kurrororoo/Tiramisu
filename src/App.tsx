@@ -5,7 +5,7 @@ const tiramisuImage = new URL('/tiramisuuu.png', import.meta.url).href;
 const cakeImage = new URL('/cake.png', import.meta.url).href;
 const greetingsImage = new URL('/Greetings.png', import.meta.url).href;
 const tongueCatGif = new URL('/cat-cat-with-tongue.gif', import.meta.url).href;
-const tiramisuMusic = new URL('/Tiramisuu_Cake.mp3', import.meta.url).href;
+const tiramisuMusic = new URL('/audio/Tiramisuu_Cake.mp3', import.meta.url).href;
 const catMeowMusic = new URL('/cat-meow-happy-birthday.mp3', import.meta.url).href;
 
 interface Ripple {
@@ -380,13 +380,24 @@ export default function App() {
                     }));
                     setFallingItems((prev) => [...prev, ...burstItems]);
 
-                    // Insulate audio playback trigger context
-                    if (audioRef.current && !isPlaying) {
-                      audioRef.current.play().then(() => {
-                        setIsPlaying(true);
-                      }).catch((err) => {
-                        console.log("Audio session start waited:", err);
-                      });
+                    // Ensure tiramisu audio from the `audio/` folder is loaded and played
+                    if (audioRef.current) {
+                      try {
+                        audioRef.current.pause();
+                        audioRef.current.muted = false;
+                        audioRef.current.preload = 'auto';
+                        audioRef.current.currentTime = 0;
+                        if (!audioRef.current.src || !audioRef.current.src.includes('/Tiramisuu_Cake.mp3')) {
+                          audioRef.current.src = tiramisuMusic;
+                        }
+                        audioRef.current.load();
+                        const prom = audioRef.current.play();
+                        if (prom && typeof prom.then === 'function') {
+                          prom.then(() => setIsPlaying(true)).catch((err) => console.log('Audio play promise rejected:', err));
+                        }
+                      } catch (err) {
+                        console.log('Audio play error:', err);
+                      }
                     }
 
                     setCurrentPage(2);
