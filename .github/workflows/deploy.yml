@@ -10,6 +10,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          # do not persist the automatic GITHUB_TOKEN credentials so we can use a personal token for publishing
+          persist-credentials: false
+          fetch-depth: 0
 
       - name: Use Node.js
         uses: actions/setup-node@v4
@@ -25,6 +29,9 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Use a personal access token stored as a repo secret named PERSONAL_TOKEN
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
           publish_dir: ./dist
           publish_branch: gh-pages
+          # create the branch if it does not exist
+          allow_empty_commit: true
