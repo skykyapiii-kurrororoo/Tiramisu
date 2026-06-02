@@ -1,0 +1,6 @@
+{
+  "name": "Tiramisuuu",
+  "description": "A pristine, minimalist canvas showcasing a beautifully rendered isometric tiramisu dessert on an elegant interactive background.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
