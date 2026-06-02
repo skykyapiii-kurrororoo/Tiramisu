@@ -344,13 +344,14 @@ export default function App() {
                       </style>
                     </defs>
                     <path id="text-curve" d="M 50,120 Q 200,35 350,120" fill="transparent" />
-                    <text 
-                      className="text-[72px] sm:text-[78px] fill-[#4a3328] tracking-wider font-sugar font-bold" 
-                      style={{ 
-                        fontFamily: "'SugarFree', 'Sugar Free DEMO Normal', sans-serif"
+                    <text
+                      className="text-[34px] sm:text-[56px] md:text-[72px] lg:text-[78px] fill-[#4a3328] tracking-wider font-sugar font-bold"
+                      style={{
+                        fontFamily: "'SugarFree', 'Sugar Free DEMO Normal', sans-serif",
+                        dominantBaseline: 'middle'
                       }}
                     >
-                      <textPath href="#text-curve" startOffset="46%" textAnchor="middle">
+                      <textPath href="#text-curve" startOffset="50%" textAnchor="middle">
                         CLICK ME!
                       </textPath>
                     </text>
